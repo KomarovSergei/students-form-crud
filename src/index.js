@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moment from 'moment';
@@ -37,7 +37,13 @@ if (localStorage.getItem('students') === null) {
   initialState = JSON.parse(localStorage.getItem('students'));
 }
 
-const store = createStore(studentsReducer, initialState);
+// const store = createStore(studentsReducer, initialState);
+
+const store = createStore(
+  studentsReducer,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

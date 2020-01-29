@@ -3,7 +3,7 @@ const studentsReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_STUDENT':
       stateCopy = [...state, action.payload];
-      localstorage.setItem('students', JSON.stringify(stateCopy));
+      localStorage.setItem('students', JSON.stringify(stateCopy));
       return stateCopy;
     case 'DELETE_STUDENT':
       stateCopy = state.filter(x => x.id !== action.payload);
@@ -12,7 +12,7 @@ const studentsReducer = (state = [], action) => {
     case 'UPDATE_STUDENT':
       stateCopy = state.map(student => {
         const { id, fio, birthday, assessments } = action.payload;
-        if ((student.id = id)) {
+        if (student.id === id) {
           student.fio = fio;
           student.birthday = birthday;
           student.assessments = assessments;
