@@ -1,47 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import moment from 'moment';
-import nanoid from 'nanoid';
+import './index.css';
 
-import studentsReducer from './reducers/studentReducer';
-
-const assessments = Object.freeze({
-  bad: 'неуд',
-  satisfactorily: 'уд',
-  good: 'хор',
-  excellent: 'отл'
-});
-
-let initialState = [
-  {
-    id: nanoid(),
-    fio: 'Komarov Sergei Valerievich',
-    birthday: moment().format('MMM Do YY'),
-    assessments: assessments.good
-  },
-  {
-    id: nanoid(),
-    fio: 'Pupkin Vasia Aleksandrovich',
-    birthday: moment().format('MMM Do YY'),
-    assessments: assessments.bad
-  }
-];
-
-if (localStorage.getItem('students') === null) {
-  localStorage.setItem('students', JSON.stringify(initialState));
-} else {
-  initialState = JSON.parse(localStorage.getItem('students'));
-}
-
-// const store = createStore(studentsReducer, initialState);
+import studentsReducer from 'reducers/studentReducer';
+import App from './components/App';
 
 const store = createStore(
   studentsReducer,
-  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
