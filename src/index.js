@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import './index.css';
 
 import studentsReducer from 'reducers/studentReducer';
-import App from './components/App';
+import StudentsForm from './components/StudentsForm';
 
 const store = createStore(
   studentsReducer,
@@ -14,7 +13,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <StudentsForm />
   </Provider>,
   document.getElementById('root')
 );

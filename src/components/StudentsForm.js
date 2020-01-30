@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addStudentAction } from 'actions/studentActions';
@@ -9,7 +8,7 @@ import c from 'utils/constants';
 
 import StudentRow from 'components/StudentRow';
 
-const App = ({ storeData, addStudentAction }) => (
+const StudentsForm = ({ storeData, addStudentAction }) => (
   <div>
     <table>
       <thead>
@@ -31,13 +30,13 @@ const App = ({ storeData, addStudentAction }) => (
       onClick={() =>
         addStudentAction({
           id: nanoid(),
-          fio: 'Add your name and surname',
-          birthday: 'Add your Birthday',
+          fio: 'add student fio',
+          birthday: 'add student birthday',
           assessments: c.assessments.initial
         })
       }
     >
-      Add New
+      Add Student
     </button>
   </div>
 );
@@ -57,4 +56,4 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentsForm);

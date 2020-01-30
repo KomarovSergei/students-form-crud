@@ -48,7 +48,7 @@ const StudentItem = ({ student, ...props }) => {
       </td>
       <td>
         <select ref={refs.assessments} value={value} onChange={handleChange}>
-          <option value={c.assessments.initial} selected>
+          <option value={c.assessments.initial} defaultValue>
             {c.assessments.initial}
           </option>
           <option value={c.assessments.excellent}>
