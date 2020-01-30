@@ -7,13 +7,13 @@ let initialState = [
     id: nanoid(),
     fio: 'Komarov Sergei Valerievich',
     birthday: moment().format('MMM Do YY'),
-    assessments: c.assessments.good
+    assessments: c.good
   },
   {
     id: nanoid(),
     fio: 'Pupkin Vasia Aleksandrovich',
     birthday: moment().format('MMM Do YY'),
-    assessments: c.assessments.bad
+    assessments: c.bad
   }
 ];
 

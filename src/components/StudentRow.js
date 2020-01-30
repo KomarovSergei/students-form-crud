@@ -9,7 +9,7 @@ import c from 'utils/constants';
 
 const StudentItem = ({ student, ...props }) => {
   const [isEdit, setIsEdit] = useState(false);
-  const [value, setValue] = useState(c.assessments.initial);
+  const [value, setValue] = useState(c.initial);
   const { fio, birthday, assessments } = student;
   const refs = {
     fio: useRef(null),
@@ -48,17 +48,13 @@ const StudentItem = ({ student, ...props }) => {
       </td>
       <td>
         <select ref={refs.assessments} value={value} onChange={handleChange}>
-          <option value={c.assessments.initial} defaultValue>
-            {c.assessments.initial}
+          <option value={c.initial} defaultValue>
+            {c.initial}
           </option>
-          <option value={c.assessments.excellent}>
-            {c.assessments.excellent}
-          </option>
-          <option value={c.assessments.good}>{c.assessments.good}</option>
-          <option value={c.assessments.satisfactorily}>
-            {c.assessments.satisfactorily}
-          </option>
-          <option value={c.assessments.bad}>{c.assessments.bad}</option>
+          <option value={c.excellent}>{c.excellent}</option>
+          <option value={c.good}>{c.good}</option>
+          <option value={c.satisfactorily}>{c.satisfactorily}</option>
+          <option value={c.bad}>{c.bad}</option>
         </select>
       </td>
       <td>

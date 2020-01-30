@@ -32,7 +32,7 @@ const StudentsForm = ({ storeData, addStudentAction }) => (
           id: nanoid(),
           fio: 'add student fio',
           birthday: 'add student birthday',
-          assessments: c.assessments.initial
+          assessments: c.initial
         })
       }
     >
