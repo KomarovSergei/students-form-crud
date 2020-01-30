@@ -1,9 +1,10 @@
+import { Student, StudentActionTypes, ADD_STUDENT, DELETE_STUDENT, UPDATE_STUDENT} from 'store/student/types'
 import moment from 'moment';
 import nanoid from 'nanoid';
 import c from 'utils/constants';
 
-let initialState = [
-  {
+let initialState: Student[] = 
+  [{
     id: nanoid(),
     fio: 'Komarov Sergei Valerievich',
     birthday: moment().format('MMM Do YY'),
@@ -14,8 +15,7 @@ let initialState = [
     fio: 'Pupkin Vasia Aleksandrovich',
     birthday: moment().format('MMM Do YY'),
     assessments: c.bad
-  }
-];
+  }]
 
 if (localStorage.getItem('students') === null) {
   localStorage.setItem('students', JSON.stringify(initialState));
@@ -23,18 +23,18 @@ if (localStorage.getItem('students') === null) {
   initialState = JSON.parse(localStorage.getItem('students'));
 }
 
-const studentsReducer = (state = initialState, action) => {
+export default function studentReducer(state = initialState, action: StudentActionTypes): Student[] {
   let stateCopy;
   switch (action.type) {
-    case 'ADD_STUDENT':
-      stateCopy = [...state, action.payload];
+    case ADD_STUDENT:
+      stateCopy = [...state, action.payload]
       localStorage.setItem('students', JSON.stringify(stateCopy));
       return stateCopy;
-    case 'DELETE_STUDENT':
+    case DELETE_STUDENT:
       stateCopy = state.filter(x => x.id !== action.payload);
       localStorage.setItem('students', JSON.stringify(stateCopy));
       return stateCopy;
-    case 'UPDATE_STUDENT':
+    case UPDATE_STUDENT:
       stateCopy = state.map(student => {
         const { id, fio, birthday, assessments } = action.payload;
         if (student.id === id) {
@@ -49,6 +49,4 @@ const studentsReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default studentsReducer;
+}
