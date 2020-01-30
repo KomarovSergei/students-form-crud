@@ -27,12 +27,11 @@ export default function studentReducer(state = initialState, action: StudentActi
   let stateCopy;
   switch (action.type) {
     case ADD_STUDENT:
-      stateCopy = [...stateCopy, action.payload]
+      stateCopy = [...state, action.payload]
       localStorage.setItem('students', JSON.stringify(stateCopy));
       return stateCopy;
     case DELETE_STUDENT:
-      stateCopy = {...state};
-      stateCopy = stateCopy.filter(x => x.id !== action.payload);
+      stateCopy = state.filter(x => x.id !== action.payload);
       localStorage.setItem('students', JSON.stringify(stateCopy));
       return stateCopy;
     case UPDATE_STUDENT:
