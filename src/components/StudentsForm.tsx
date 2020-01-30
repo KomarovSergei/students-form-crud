@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addStudentAction } from 'actions/studentActions';
+import { addStudentAction } from 'store/student/actions';
 import nanoid from 'nanoid';
 
 import c from 'utils/constants';

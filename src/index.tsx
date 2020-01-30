@@ -4,11 +4,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import studentsReducer from 'reducers/studentReducer';
-import StudentsForm from './components/StudentsForm';
+import StudentsForm from 'components/StudentsForm';
 
 const store = createStore(
-  studentsReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  studentsReducer //,
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

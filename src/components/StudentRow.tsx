@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import {
   deleteStudentAction,
   updateStudentAction
-} from 'actions/studentActions';
+} from 'store/student/actions';
 import c from 'utils/constants';
 
 const StudentItem = ({ student, ...props }) => {
@@ -47,10 +47,13 @@ const StudentItem = ({ student, ...props }) => {
         <input ref={refs.birthday} defaultValue={birthday} />
       </td>
       <td>
-        <select ref={refs.assessments} value={value} onChange={handleChange}>
-          <option value={c.initial} defaultValue>
-            {c.initial}
-          </option>
+        <select
+          ref={refs.assessments}
+          value={value}
+          onChange={handleChange}
+          defaultValue={c.initial}
+        >
+          <option value={c.initial}>{c.initial}</option>
           <option value={c.excellent}>{c.excellent}</option>
           <option value={c.good}>{c.good}</option>
           <option value={c.satisfactorily}>{c.satisfactorily}</option>
