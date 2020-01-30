@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch, AnyAction } from 'redux';
 import { addStudentAction } from 'store/student/actions';
 import nanoid from 'nanoid';
 
@@ -52,7 +52,7 @@ const mapStateToProps = (state: Student[]) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => {
   return bindActionCreators(
     {
       addStudentAction

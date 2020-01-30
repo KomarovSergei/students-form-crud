@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
+import { bindActionCreators, Dispatch, AnyAction } from 'redux';
 
 import {
   deleteStudentAction,
@@ -90,7 +90,7 @@ const FCStudentItem: React.FC<Props> = ({ student, ...props }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps: any): any => {
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>, ownProps: any) => {
   return bindActionCreators(
     {
       deleteStudentAction,
