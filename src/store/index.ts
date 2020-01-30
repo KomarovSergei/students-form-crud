@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import studentReducer from 'store/student/reducer'
 
 const rootReducer = combineReducers({
-  student: studentReducer
+  studentReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

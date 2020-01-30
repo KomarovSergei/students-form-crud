@@ -1,13 +1,21 @@
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
+
 import {
   deleteStudentAction,
   updateStudentAction
 } from 'store/student/actions';
 import c from 'utils/constants';
+import { Student } from 'store/student/types';
 
-const StudentItem = ({ student, ...props }) => {
+type Props = {
+  student: Student;
+  deleteStudentAction: (id: string) => void;
+  updateStudentAction: (student: Student) => void;
+};
+
+const FCStudentItem: React.FC<Props> = ({ student, ...props }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [value, setValue] = useState(c.initial);
   const { fio, birthday, assessments } = student;
@@ -82,7 +90,7 @@ const StudentItem = ({ student, ...props }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps: any): any => {
   return bindActionCreators(
     {
       deleteStudentAction,
@@ -92,4 +100,4 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(StudentItem);
+export default connect(null, mapDispatchToProps)(FCStudentItem);
