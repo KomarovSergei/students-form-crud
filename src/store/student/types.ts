@@ -9,6 +9,10 @@ export interface Student {
   assessments: string
 }
 
+// export interface State {
+//   students: Student[]
+// }
+
 interface AddStudentAction {
   type: typeof ADD_STUDENT
   payload: Student
