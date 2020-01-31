@@ -1,6 +1,6 @@
-import { Student, StudentActionTypes, ADD_STUDENT, DELETE_STUDENT, UPDATE_STUDENT} from 'store/student/types'
+import { IStudent, StudentActionTypes, ADD_STUDENT, DELETE_STUDENT, UPDATE_STUDENT} from 'store/student/types'
 
-export function addStudentAction(student: Student): StudentActionTypes {
+export function addStudentAction(student: IStudent): StudentActionTypes {
   return {
     type: ADD_STUDENT,
     payload: student
@@ -14,7 +14,7 @@ export function deleteStudentAction(id: string): StudentActionTypes {
   }
 }
 
-export function updateStudentAction(student: Student): StudentActionTypes {
+export function updateStudentAction(student: IStudent): StudentActionTypes {
   return {
     type: UPDATE_STUDENT,
     payload: student

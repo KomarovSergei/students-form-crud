@@ -1,9 +1,9 @@
-import { Student, StudentActionTypes, ADD_STUDENT, DELETE_STUDENT, UPDATE_STUDENT} from 'store/student/types'
+import { IStudent, StudentActionTypes, ADD_STUDENT, DELETE_STUDENT, UPDATE_STUDENT} from 'store/student/types'
 import moment from 'moment';
 import nanoid from 'nanoid';
 import c from 'utils/constants';
 
-let initialState: Student[] = 
+let initialState: IStudent[] = 
   [{
     id: nanoid(),
     fio: 'Komarov Sergei Valerievich',
@@ -23,7 +23,7 @@ if (localStorage.getItem('students') === null) {
   initialState = JSON.parse(localStorage.getItem('students'));
 }
 
-export default function studentReducer(state = initialState, action: StudentActionTypes): Student[] {
+export default function studentReducer(state = initialState, action: StudentActionTypes): IStudent[] {
   let stateCopy;
   switch (action.type) {
     case ADD_STUDENT:

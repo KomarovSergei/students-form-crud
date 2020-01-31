@@ -7,12 +7,12 @@ import {
   updateStudentAction
 } from 'store/student/actions';
 import c from 'utils/constants';
-import { Student } from 'store/student/types';
+import { IStudent } from 'store/student/types';
 
 type Props = {
-  student: Student;
+  student: IStudent;
   deleteStudentAction: (id: string) => void;
-  updateStudentAction: (student: Student) => void;
+  updateStudentAction: (student: IStudent) => void;
 };
 
 const FCStudentItem: React.FC<Props> = ({ student, ...props }) => {

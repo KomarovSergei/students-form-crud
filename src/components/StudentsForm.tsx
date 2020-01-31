@@ -5,12 +5,12 @@ import { addStudentAction } from 'store/student/actions';
 import nanoid from 'nanoid';
 
 import c from 'utils/constants';
-import { Student } from 'store/student/types';
+import { IStudent } from 'store/student/types';
 import StudentRow from 'components/StudentRow';
 
 type Props = {
-  storeData: Student[];
-  addStudentAction: (student: Student) => void;
+  storeData: IStudent[];
+  addStudentAction: (student: IStudent) => void;
 };
 
 const FCStudentsForm: React.FC<Props> = ({ storeData, addStudentAction }) => (
@@ -46,7 +46,7 @@ const FCStudentsForm: React.FC<Props> = ({ storeData, addStudentAction }) => (
   </div>
 );
 
-const mapStateToProps = (state: Student[]) => {
+const mapStateToProps = (state: IStudent[]) => {
   return {
     storeData: state
   };
