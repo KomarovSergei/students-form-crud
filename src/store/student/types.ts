@@ -2,30 +2,26 @@ export const ADD_STUDENT = 'ADD_STUDENT';
 export const DELETE_STUDENT = 'DELETE_STUDENT';
 export const UPDATE_STUDENT = 'UPDATE_STUDENT';
 
-export interface Student {
+export interface IStudent {
   id: string
   fio: string
   birthday: string
   assessments: string
 }
 
-// export interface State {
-//   students: Student[]
-// }
-
-interface AddStudentAction {
+interface IAddStudentAction {
   type: typeof ADD_STUDENT
-  payload: Student
+  payload: IStudent
 }
 
-interface DeleteStudentAction {
+interface IDeleteStudentAction {
   type: typeof DELETE_STUDENT
   payload: string
 }
 
-interface UpdateStudentAction {
+interface IUpdateStudentAction {
   type: typeof UPDATE_STUDENT
-  payload: Student
+  payload: IStudent
 }
 
-export type StudentActionTypes = AddStudentAction | DeleteStudentAction | UpdateStudentAction
+export type StudentActionTypes = IAddStudentAction | IDeleteStudentAction | IUpdateStudentAction
